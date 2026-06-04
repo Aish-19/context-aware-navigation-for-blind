@@ -2,10 +2,10 @@
 merge_datasets.py
 -----------------
 Run on EC2. Downloads Roboflow datasets, merges with existing
-Cityscapes 4-class data, remaps class IDs, outputs unified dataset.
+Cityscapes data, remaps class IDs, outputs unified dataset.
 
 Usage:
-    pip install roboflow pyyaml opencv-python tqdm
+    pip install roboflow pyyaml tqdm
     python3 merge_datasets.py
 
 Flags:
@@ -27,13 +27,34 @@ from roboflow import Roboflow
 INCREMENTAL = True
 
 # ─────────────────────────────────────────────
+# BASE PATHS
+# ─────────────────────────────────────────────
+BASE_DIR      = "/mnt/my-data"
+CITYSCAPES_DIR = os.path.join(BASE_DIR, "dataset")
+MERGED_DIR    = os.path.join(BASE_DIR, "merged")
+RF_DIR        = os.path.join(BASE_DIR, "roboflow")
+
+# ─────────────────────────────────────────────
 # 1. EXISTING CITYSCAPES CLASSES (already extracted)
 # ─────────────────────────────────────────────
 CITYSCAPES_CLASSES = {
-    0: "pole",
-    1: "fence",
-    2: "vegetation",
-    3: "terrain",
+    0:  "person",
+    1:  "rider",
+    2:  "car",
+    3:  "truck",
+    4:  "bus",
+    5:  "on_rails",
+    6:  "motorcycle",
+    7:  "bicycle",
+    8:  "caravan",
+    9:  "trailer",
+    10: "wall",
+    11: "fence",
+    12: "guard_rail",
+    13: "pole",
+    14: "polegroup",
+    15: "vegetation",
+    16: "terrain",
 }
 
 # ─────────────────────────────────────────────
@@ -96,16 +117,18 @@ CLASS_NAME_ALIASES = {
 # ─────────────────────────────────────────────
 def download_datasets():
     print("\n=== Downloading Roboflow Datasets ===")
+    os.makedirs(RF_DIR, exist_ok=True)
     for ds in ROBOFLOW_DATASETS:
-        if os.path.exists(ds["location"]):
+        location = os.path.join(RF_DIR, ds["location"])
+        if os.path.exists(location):
             print(f"  {ds['location']} already exists, skipping download.")
             continue
         print(f"  Downloading {ds['project']}...")
         rf = Roboflow(api_key=ds["api_key"])
         rf.workspace(ds["workspace"]).project(ds["project"]).version(ds["version"]).download(
-            "yolo26", location=ds["location"]
+            "yolo26", location=location
         )
-        print(f"  Done: {ds['location']}")
+        print(f"  Done: {location}")
 
 # ─────────────────────────────────────────────
 # 5. BUILD UNIFIED CLASS MAP
@@ -119,7 +142,7 @@ def build_unified_class_map():
     # Collect all Roboflow class names
     roboflow_class_info = []
     for ds in ROBOFLOW_DATASETS:
-        yaml_path = os.path.join(ds["location"], "data.yaml")
+        yaml_path = os.path.join(RF_DIR, ds["location"], "data.yaml")
         with open(yaml_path) as f:
             data = yaml.safe_load(f)
         names = data.get("names", [])
@@ -177,16 +200,16 @@ def merge_all(unified_classes, name_to_id, roboflow_class_info):
     print("\n=== Merging Datasets ===")
 
     for split in ["train", "val", "test"]:
-        os.makedirs(f"merged/images/{split}", exist_ok=True)
-        os.makedirs(f"merged/labels/{split}", exist_ok=True)
+        os.makedirs(os.path.join(MERGED_DIR, "images", split), exist_ok=True)
+        os.makedirs(os.path.join(MERGED_DIR, "labels", split), exist_ok=True)
 
     # --- Cityscapes (already correct IDs, just copy) ---
     print("\n  Copying Cityscapes data...")
     cityscapes_id_map = {old_id: name_to_id[name] for old_id, name in CITYSCAPES_CLASSES.items()}
 
     for split in ["train", "val", "test"]:
-        img_dir = f"dataset/images/{split}"
-        lbl_dir = f"dataset/labels/{split}"
+        img_dir = os.path.join(CITYSCAPES_DIR, "images", split)
+        lbl_dir = os.path.join(CITYSCAPES_DIR, "labels", split)
         if not os.path.exists(img_dir):
             print(f"    Cityscapes {split} not found, skipping.")
             continue
@@ -197,10 +220,10 @@ def merge_all(unified_classes, name_to_id, roboflow_class_info):
             lbl_file = img_file.replace(".png", ".txt")
             src_img = os.path.join(img_dir, img_file)
             src_lbl = os.path.join(lbl_dir, lbl_file)
-            dst_img = f"merged/images/{split}/cityscapes_{img_file}"
-            dst_lbl = f"merged/labels/{split}/cityscapes_{lbl_file}"
+            dst_img = os.path.join(MERGED_DIR, "images", split, f"cityscapes_{img_file}")
+            dst_lbl = os.path.join(MERGED_DIR, "labels", split, f"cityscapes_{lbl_file}")
             if INCREMENTAL and os.path.exists(dst_img):
-                continue  # skip already processed
+                continue
             shutil.copy(src_img, dst_img)
             if remap_labels(src_lbl, dst_lbl, cityscapes_id_map):
                 count += 1
@@ -211,8 +234,8 @@ def merge_all(unified_classes, name_to_id, roboflow_class_info):
 
     for ds, (location, rf_names) in zip(ROBOFLOW_DATASETS, roboflow_class_info):
         print(f"\n  Processing {location}...")
+        full_location = os.path.join(RF_DIR, location)
 
-        # Build old ID → new unified ID map for this dataset
         if isinstance(rf_names, dict):
             rf_names = list(rf_names.values())
 
@@ -223,8 +246,8 @@ def merge_all(unified_classes, name_to_id, roboflow_class_info):
                 old_to_new[old_id] = name_to_id[normalized]
 
         for rf_split, unified_split in split_map.items():
-            img_dir = os.path.join(location, rf_split, "images")
-            lbl_dir = os.path.join(location, rf_split, "labels")
+            img_dir = os.path.join(full_location, rf_split, "images")
+            lbl_dir = os.path.join(full_location, rf_split, "labels")
             if not os.path.exists(img_dir):
                 continue
             count = 0
@@ -234,10 +257,10 @@ def merge_all(unified_classes, name_to_id, roboflow_class_info):
                 lbl_file = img_file.replace(ext, ".txt")
                 src_img = os.path.join(img_dir, img_file)
                 src_lbl = os.path.join(lbl_dir, lbl_file)
-                dst_img = f"merged/images/{unified_split}/{prefix}_{img_file}"
-                dst_lbl = f"merged/labels/{unified_split}/{prefix}_{lbl_file}"
+                dst_img = os.path.join(MERGED_DIR, "images", unified_split, f"{prefix}_{img_file}")
+                dst_lbl = os.path.join(MERGED_DIR, "labels", unified_split, f"{prefix}_{lbl_file}")
                 if INCREMENTAL and os.path.exists(dst_img):
-                    continue  # skip already processed
+                    continue
                 shutil.copy(src_img, dst_img)
                 if remap_labels(src_lbl, dst_lbl, old_to_new):
                     count += 1
@@ -249,16 +272,17 @@ def merge_all(unified_classes, name_to_id, roboflow_class_info):
 def write_yaml(unified_classes):
     print("\n=== Writing data.yaml ===")
     yaml_content = {
-        "path": "merged",
+        "path": MERGED_DIR,
         "train": "images/train",
         "val": "images/val",
         "test": "images/test",
         "nc": len(unified_classes),
         "names": {i: name for i, name in enumerate(unified_classes)},
     }
-    with open("merged/data.yaml", "w") as f:
+    yaml_path = os.path.join(MERGED_DIR, "data.yaml")
+    with open(yaml_path, "w") as f:
         yaml.dump(yaml_content, f, default_flow_style=False, sort_keys=False)
-    print("  Saved: merged/data.yaml")
+    print(f"  Saved: {yaml_path}")
 
 # ─────────────────────────────────────────────
 # 9. PRINT FINAL SUMMARY
@@ -266,13 +290,12 @@ def write_yaml(unified_classes):
 def print_summary():
     print("\n=== Final Dataset Summary ===")
     for split in ["train", "val", "test"]:
-        img_dir = f"merged/images/{split}"
+        img_dir = os.path.join(MERGED_DIR, "images", split)
         if os.path.exists(img_dir):
             count = len(os.listdir(img_dir))
             print(f"  {split}: {count} images")
     print("\n  Upload to S3:")
-    print("  aws s3 cp -r merged/ s3://object-detection-data-s3/merged-dataset/")
-    print("  aws s3 cp merged/data.yaml s3://object-detection-data-s3/merged-dataset/")
+    print(f"  aws s3 cp -r {MERGED_DIR}/ s3://object-detection-data-s3/merged-dataset/")
 
 # ─────────────────────────────────────────────
 # MAIN
@@ -285,6 +308,5 @@ if __name__ == "__main__":
     print_summary()
 
     print("\n=== Upload to S3 ===")
-    os.system("aws s3 cp -r merged/ s3://object-detection-data-s3/merged-dataset/")
-    os.system("aws s3 cp merged/data.yaml s3://object-detection-data-s3/merged-dataset/")
+    os.system(f"aws s3 cp -r {MERGED_DIR}/ s3://object-detection-data-s3/merged-dataset/")
     print("Done!")
