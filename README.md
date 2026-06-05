@@ -107,6 +107,10 @@ rf.workspace("tom-lai-8bp7n").project("stairs-i2yia").version(3).download("yolo2
 context-aware-navigation/
 ├── Extraction-cityscapes.ipynb   # Cityscapes → YOLO format conversion
 ├── YOLO Object detection         # YOLOv26s fine-tuning notebook
+├── backend/                      # FastAPI Qwen VLM guidance API
+├── android-app/                  # Android camera + TTS prototype
+├── path_guidance.py              # Standalone Qwen VLM image guidance script
+├── tts_demo.py                   # Local TTS parsing/speech demo
 ├── extract.py                    # EC2 extraction script
 ├── merge.py                      # Dataset merge script (coming soon)
 ├── data.yaml                     # Unified dataset config
@@ -152,6 +156,77 @@ model.train(data="data.yaml", epochs=50, imgsz=640)
 
 ---
 
+## VLM Guidance Prototype
+
+This repo includes a working Qwen2.5-VL prototype that turns a camera frame into a concise navigation instruction:
+
+```json
+{
+  "direction": "move slightly right",
+  "reason": "The most open sidewalk region is on the right side.",
+  "spoken_instruction": "Move slightly to the right."
+}
+```
+
+### Local Python Demo
+
+Install the VLM dependencies:
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-vlm.txt
+```
+
+Run the standalone image guidance script:
+
+```bash
+.venv/bin/python path_guidance.py
+```
+
+Run the text-to-speech demo:
+
+```bash
+.venv/bin/python tts_demo.py
+```
+
+### FastAPI Backend
+
+Install backend dependencies:
+
+```bash
+.venv/bin/python -m pip install -r backend/requirements.txt
+```
+
+Start the API:
+
+```bash
+cd backend
+../.venv/bin/python -m uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+Health check:
+
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+Analyze an image:
+
+```bash
+curl -F "image=@../frame.jpg" http://127.0.0.1:8000/guide
+```
+
+### Android App
+
+Open `android-app/` in Android Studio.
+
+- Emulator backend URL: `http://10.0.2.2:8000`
+- Physical phone backend URL: change `android-app/app/src/main/res/values/strings.xml` to your computer's LAN IP, for example `http://192.168.1.20:8000`
+
+The app captures a camera frame, sends it to the FastAPI backend, displays the returned direction and reason, and speaks `spoken_instruction` with Android TextToSpeech.
+
+---
+
 ## Progress
 
 - [x] Cityscapes dataset extraction to YOLO segmentation format
@@ -161,8 +236,9 @@ model.train(data="data.yaml", epochs=50, imgsz=640)
 - [ ] Unified class remapping
 - [ ] YOLOv26s fine-tuning
 - [ ] Depth estimation integration
-- [ ] Qwen VLM scene understanding
-- [ ] TTS audio output
+- [x] Qwen VLM scene understanding prototype
+- [x] TTS audio output prototype
+- [x] Android camera + TTS prototype
 - [ ] End-to-end system evaluation
 
 ---

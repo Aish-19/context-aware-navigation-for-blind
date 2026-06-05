@@ -1,0 +1,9 @@
+accelerate
+fastapi
+pillow
+python-multipart
+qwen-vl-utils
+torch
+torchvision
+transformers
+uvicorn[standard]
