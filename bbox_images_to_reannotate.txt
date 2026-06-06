@@ -1,0 +1,130 @@
+=== IMAGES NEEDING POLYGON RE-ANNOTATION ===
+Dataset: annotated-walk-assist (Roboflow)
+Total: 118 images
+
+Go to: https://universe.roboflow.com/shruthikas-workspace/annotated-walk-assist
+Open each image, delete the bounding box, redraw as polygon.
+
+=== pedestrian_walk (58 images) ===
+0157eac4-dd22-43ea-b2c1-7fdd55d2f255_jpg.rf.2IjY7t2LVKabm8nVUSTn.jpg
+02f9e396-839e-4800-a527-53a4b4d3c4b9_jpg.rf.kS8Azds5WHEN9vpHHcsH.jpg
+0914f69f-2880-44be-bc53-1c01a6182ea5_jpg.rf.WzDK9BiJNriXLhnihe41.jpg
+0ac65977-d35b-47b9-8913-e77ea764bd87_jpg.rf.bXXImDZloUtrAugUUoev.jpg
+0eafcc69-fc00-4449-b4f3-1d272188e25b_jpg.rf.CSp3L77v6Gru8GMA8mYs.jpg
+126c43a2-6340-441e-acf7-2c59850bedc1_jpg.rf.UA6CQfYpPL5aVtb0Lgdb.jpg
+134ac200-d86c-49bb-942f-9177d45098ff_jpg.rf.fSY6BRbYF7kVdqo1HNkO.jpg
+176a8c18-b5f1-4af3-8097-a1f2f34ba571_jpg.rf.3CJcg3PfLE3FEb7k0HVi.jpg
+2093eb51-e9b1-450d-9dc0-a915bc92e4cf_jpg.rf.5ojf8CjDHCcGruGk3I9S.jpg
+21922890-ea07-4ea8-aeba-dee39dd383d3_jpg.rf.CTPUNpeIBdt9G8Re9GwQ.jpg
+222d7eb7-1b45-45e9-86e2-57038a033cc8_jpg.rf.pWDDaEzMS8wt1LeMlhy3.jpg
+2589d446-63a9-4b8e-86de-3ded7c774852_jpg.rf.nsPihm2EAtuYui77x96P.jpg
+2b845fcd-8099-4a60-82eb-68d8f9e033e6_jpg.rf.1SsIBNuCUWkSlxLp624f.jpg
+35359c91-0e2b-44c7-94bc-e3d32b6d4ed7_jpg.rf.yozvO26ngD6n74riDz13.jpg
+358a2c80-9ebf-493b-8f68-a639bde6fb9a_jpg.rf.O8o7iBRVC1fkWIzqmJGa.jpg
+3bca8794-369e-4985-8c7b-aba3c5be10ec_jpg.rf.ioICfzOjpLtLi8O0v8ZA.jpg
+3ea2e9a7-0ea9-4ef0-ac94-d001561ef63d_jpg.rf.g5rbzsY2pGx8bgyZbqrH.jpg
+4006397d-deac-4078-bc40-4b22a35b7e8b_jpg.rf.beHrIsO4C7JdPvX2rs7k.jpg
+40361dec-b642-4c30-a346-cf2d7f3197eb_jpg.rf.pkdnQiywNrekoSrd7WQX.jpg
+40a0580a-47d8-4f3f-a8cc-50da1f45db62_jpg.rf.XovZW1da9z1t6vhpHJ8m.jpg
+5274661f-fd7d-4887-a6af-f5bfe1fe175c_jpg.rf.P8wtzHqwg438pppLoS7l.jpg
+53a5bd27-9855-49d5-8eb7-a9b75f44121e_jpg.rf.3l2t3kM9kMFWSRpjufZX.jpg
+575d3a44-4c4c-4eb2-bfbd-d48f2e4cb611_jpg.rf.Mea8WVHaY0pQqZeyjZAq.jpg
+6265ed5c-cd2f-413d-96e2-ecd7f6fd7904_jpg.rf.5HBvaIoCSKNjnRjntP39.jpg
+789c6539-211d-4efd-983a-f89d2f8a0283_jpg.rf.cFGUavJl4MtbiRU4E2GQ.jpg
+85ae6bb9-f0fe-4ee6-b9ee-f5a3e754a67b_jpg.rf.lPsiPNg9SCjS1HsDMmVY.jpg
+8c2c483d-e3a6-46ff-8d67-b001e4c8a302_jpg.rf.hoLcEp3R0FGjPXTPJk9W.jpg
+8e3544b8-f957-4f31-b3a7-4893a6deda02_jpg.rf.8YIpx2UHJmGHFveW6auy.jpg
+8edffacd-0fad-47e2-88a2-faf9db4154ff_jpg.rf.G051z26Q29lDAZ39gYx8.jpg
+8f5d427a-8856-4ad1-929b-35673d1b147c_jpg.rf.2Y7KpjeQa2WeaMdcNbC6.jpg
+9170af6a-daee-4e43-9638-87d0440d2d54_jpg.rf.bTA6eTSWQ0Ej4EqXxQxr.jpg
+Screen Shot 2022-07-09 at 1-00-15 PM_png.rf.pFESSvr4b1IIjfkimlxg.png
+Screen Shot 2022-07-09 at 1-00-40 PM_png.rf.q2uejxEEwPX0AbY5MYNR.png
+Screen Shot 2022-07-09 at 1-00-47 PM_png.rf.OX110rrJOJS1CZAfomo5.png
+Screen Shot 2022-07-09 at 12-57-08 PM_png.rf.7hdNWv6228ql2zDRk8Rj.png
+Screen Shot 2022-07-09 at 12-57-38 PM_png.rf.vDxODr5zhadevnH4nttJ.png
+Screen Shot 2022-07-09 at 12-58-40 PM_png.rf.eMAA3msCu7Q5KXilb5rU.png
+a9964076-523f-46c8-ba51-02fe74365af9_jpg.rf.whEuzFhgobCD8gUE8UdF.jpg
+ad631301-863c-4b42-bd51-6f7f47f30d87_jpg.rf.ZKwAdffshrDmlFPAhpxs.jpg
+aebf7d5b-36e5-4324-ad93-df294e49f2e3_jpg.rf.W9zAMCSgn7BDLO2iVcEP.jpg
+aff9d863-e2a2-4afe-9bf9-3f9c6857d966_jpg.rf.ytb06zGEYhWra0MQlXV8.jpg
+b0839f6f-3f84-40d9-8c34-982919f1390b_jpg.rf.XtN3xPlenHdrISWKfFTn.jpg
+b16b4029-e099-478c-9a24-4117e27e963b_jpg.rf.VxwJG2NJcg7dhcdmECd5.jpg
+b25d1465-6e6c-4425-9bc6-abaecb74eb92_jpg.rf.ELELTfsE7wkgz8GghDyR.jpg
+b91d1245-73fd-403c-81f2-d03b4212320a_jpg.rf.YT4u3Yn5OWet5SkMB87j.jpg
+bf9db9e5-1ea2-4cec-a3c6-76d25e51f455_jpg.rf.oxDpvcRMp9titC2ufwnr.jpg
+c1ac4bbf-abe9-47e4-b5bb-e31ac14ed3c8_jpg.rf.x2AsvX4FuQ264MaIyrDi.jpg
+c3af23da-a84e-4d6a-bced-acb4f114b47e_jpg.rf.pF4tZQ4NawN7l1iD8Joe.jpg
+c5cd98ab-1b78-4228-94b3-be16241faddc_jpg.rf.bbtrX2WYv8RCRpPSbScr.jpg
+c6e36fec-4fdb-4316-8be0-8ba6617dcbb6_jpg.rf.iTQ9t7Hr2mCVJwjtYmZD.jpg
+c9881001-04e2-4ad2-a9c2-f7d1bba89abe_jpg.rf.Q8v96lw6DYDgUnluNaM5.jpg
+ced480dc-9d64-47d8-bf12-fcabb129bfb2_jpg.rf.mIk6p0ra4jZzuVJb3t6u.jpg
+dfa005d3-191f-4285-928f-53a3ead0723a_jpg.rf.FqHGl11V1bcPr6AK5gF6.jpg
+e163a572-6d68-4760-80a5-d07b084d95c0_jpg.rf.0yWmkujApP23fQTtX75j.jpg
+e16e685a-a6d4-4bad-8bf8-31bb3f343638_jpg.rf.Dn7u14CHQqkpjc3kjRe3.jpg
+e20f8a7b-7d7d-4f1a-bd5a-bed7538bf22f_jpg.rf.AfUFtV1s0uxYRhRvJ8mh.jpg
+eb00fe2c-4a1a-4ce6-943c-1f370ca3f241_jpg.rf.V2nv9cvS74Esh5KPPJ5n.jpg
+f84fcc6d-0247-4757-8a8b-5fa662af04c2_jpg.rf.ilKIOGbuEpzmo5xlkw91.jpg
+
+=== pedestrian_stop (48 images) ===
+0a6e3b40-a2ce-4708-af60-dd3f73ab1791_jpg.rf.SVCLBMhmoJZfYGY7Bwma.jpg
+0fbe72d6-a6cc-48f5-b3cf-a2e929879131_jpg.rf.g1L7Jn9lu6sW561ttKxI.jpg
+1432dc32-58d2-44dd-b247-58c6ca16e694_jpg.rf.x1WDRkmNh9J0xGaa6rCY.jpg
+15c0828d-6786-43f5-998b-f2377eca1278_jpg.rf.nHitQj3ME9xE8yRGxaGF.jpg
+1749fa66-1f5b-4f4f-93e5-3d9c01344710_jpg.rf.r3w6VU5hKqmQt1Txesfs.jpg
+1a51d674-9d0e-42e5-8c49-de64c9825ac7_jpg.rf.s0mEUc4VNKYl1dyd20Gg.jpg
+22f2dfa2-9498-4622-aa7b-76fa3f2c3bc4_jpg.rf.6C9oBzUnb6zDBAo1SqcF.jpg
+26df5259-5c5c-4c9e-ae07-2af47b6c24ca_jpg.rf.DYD9nKlgEicDx9l0XfaI.jpg
+29faacaf-7cad-46fe-a25b-e23168b3ea15_jpg.rf.cXqY31cPEABglvkovjt2.jpg
+2bf211a3-43e5-47f8-ac6d-01241ae9cb49_jpg.rf.dt9lApY96xdrd7thruuP.jpg
+2c5804d3-2093-4569-b98a-fbe56c1f7879_jpg.rf.xfziIAxlS5HS9FvH3kL8.jpg
+2f0fff49-15ff-4796-8e53-cdf44726d1cc_jpg.rf.X1F2yJkNZHTwCe2Pf9qZ.jpg
+3265578d-f17e-48f2-adb5-0d55cfb97294_jpg.rf.kCnlxDIwPsL8uhQgZDdm.jpg
+3267beae-60c4-45e5-a149-ddc8b75c8d96_jpg.rf.qQmUxTSHv8B9HUCZLi84.jpg
+45b26b3c-2bd7-4c09-8280-500b5106786f_jpg.rf.AiyNq8cEw00gLtscUiC7.jpg
+4cece01b-dec8-46c6-b1ff-d74f2e1b2741_jpg.rf.jupVXkTsJPGVmle7yzDR.jpg
+5469491b-7c51-44e7-8c79-156647ca9141_jpg.rf.8xgM9p27EpwPsClvO55s.jpg
+568786b0-64d5-4948-a148-9389814352b7_jpg.rf.oBgcpmQdd5VO4AvChhqJ.jpg
+65504476-6f22-4056-97dc-e802b674b0c0_jpg.rf.hxynWjs4fZ8laQdqXjXu.jpg
+6b250574-c99a-4e2d-84c4-412ff74ed65a_jpg.rf.1ZKlE8t3A3Tge9ayb9tj.jpg
+6e2fd067-5c4e-49ee-b1b8-e94fadcba3a3_jpg.rf.6R85Qyio7SzTKkL6hg2G.jpg
+8140353b-5a7a-434b-9b22-71ec641fd48f_jpg.rf.7cLfM5QixB0cJ0cLSOMr.jpg
+827f96ad-fca4-47d4-ae9b-589c632240ac_jpg.rf.wFTwW5bPHcZekqt79tSK.jpg
+84c0128d-84d3-41f3-9d68-51f9f8e9a043_jpg.rf.GDvt5cjMmpvDRmCjiHhn.jpg
+8fc6a882-1cc4-43a3-b44f-b891c61b8060_jpg.rf.jiyLzsfUHMyOCzg9RHuj.jpg
+94993021-4de0-4555-b613-a439c69d2ca2_jpg.rf.ytoKe9xVBTLfwAVYTtn2.jpg
+a186950f-b8d9-44cf-88e3-dd9bd57bf8ba_jpg.rf.bN387xdESVNQNk8nPZ7q.jpg
+a4a754c4-b585-46ce-8a2d-302c65cb044a_jpg.rf.nHTAaojRquzTsy0WRf9k.jpg
+a5b27d87-7451-4b55-bd38-5c705c8fca10_jpg.rf.nJTxKoXjXsE9Wdv738Um.jpg
+a64b84f9-8b71-4bc4-b2b7-ab059acc7ec9_jpg.rf.MKJvGptGzNwoApXVyQAI.jpg
+b2e6d7c4-da88-4353-9abf-99fbcc6149ac_jpg.rf.pcTToE9LTQ8iDuOkoB0n.jpg
+b547ed83-4659-4e95-99dc-4b22827540cb_jpg.rf.KpLt5eZRLEK7yOO8phcN.jpg
+b922ff98-7886-4e9d-9818-b1b78ea772e1_jpg.rf.yZlfZemR5BKZeLJ6KUU7.jpg
+b9ba50f3-d9df-4337-97d4-85c163aa5da7_jpg.rf.9JUt8YyfJs0a2n5lML2V.jpg
+bc90788b-a317-4873-a7dc-1d6c8360664f_jpg.rf.ctrHFcttFTtUvlf2tcm0.jpg
+bdd9f9d6-9dbe-4844-b641-5c2f1a9fc425_jpg.rf.kuTHJf7Pt4gqUMFRfnCd.jpg
+be9733ed-0c83-44eb-9bac-413c589e4902_jpg.rf.5pXnXZ5ZorClzZegQ0vG.jpg
+bf16fdd7-94b6-4d01-b4ae-5ad3448fc858_jpg.rf.vjkn9ZWbodOddfywvvpk.jpg
+bf70454c-4544-438a-a706-2da941507f95_jpg.rf.IPwV0h6N9gG4NBFcIsy9.jpg
+c414e8ca-37cf-4d58-ab01-8206a2dd918f_jpg.rf.Bw2EcTQagQwMPBh46FQg.jpg
+cb7f7b5c-0343-4d78-8962-8096098801a4_jpg.rf.TTdivW83fLHylOJtR9c9.jpg
+ce65557e-cd98-46c6-8438-be5df4b8e0db_jpg.rf.PAI0zAgZ9h3au2UOoVnc.jpg
+d92daf05-66f6-4962-9493-e64147678902_jpg.rf.6lVOKZKeJ2ANEv6qMhk8.jpg
+e1c51bd0-84d5-4cf6-bf52-542e2bf06cde_jpg.rf.qsPDIjNVSyVKXS6tyfMr.jpg
+edd6cce7-b899-4e56-9bb4-6925551f887a_jpg.rf.yeG64r9SCLJkzRjjGkFm.jpg
+efe1a855-538d-4546-9535-67af1cbb2625_jpg.rf.bs5XfEBsxdSkBV1khtSx.jpg
+f366e412-3ae4-40fc-8082-da61e2758118_jpg.rf.5ZfAoqbdRRSb8mpnuB9U.jpg
+f5115247-18de-43a6-b79a-e1b2bd4861d4_jpg.rf.VOy087OwXyVR0gGumx9D.jpg
+
+=== crosswalk (12 images) ===
+0c1ca676-6bf0-45ed-a324-def04710a495_jpg.rf.vKFWmu139VNbjJ9bFtXU.jpg
+17f221be-91e3-4452-bd83-0bd6147359c1_jpg.rf.qczvER5LcJQnyJBaorcF.jpg
+34cd2a60-5c92-4abc-8238-006eb0bfde1b_jpg.rf.pufTowphkfucFTwoCrgf.jpg
+3a0cfc47-a394-416c-9583-62f9d018efd5_jpg.rf.xMnqdXMQnq31FGjcoICb.jpg
+44de7d60-d4d7-4df3-aeac-c51ce40f5536_jpg.rf.xddnVwACIgQXHteEkuCH.jpg
+5d904cae-1910-44e0-bd77-12abe920c368_jpg.rf.uaPKtYhsYJLtyJnczbLv.jpg
+5e72faff-b8b2-49f9-8768-42e6f626bfb4_jpg.rf.prH3gGIveX8EFoOKfJw4.jpg
+790a4326-c8de-4fa5-a091-9330dc7538a4_jpg.rf.K7NoYdfjfHleFnENGdB6.jpg
+8ce1374f-496a-41f5-abd7-fd75b21bd2f7_jpg.rf.3HgFh9kiwIbymWGcSrbp.jpg
+a439505e-3b09-400d-84f0-924bb6d366e6_jpg.rf.rIR9w4LZqGXR1VIZYYAP.jpg
+b8af954a-6099-4e85-bcf4-e4a49dde3297_jpg.rf.syhrmM6XNHVeWSaVzHsU.jpg
+f07a6f6b-93d2-45fb-9244-5d3b85157a45_jpg.rf.naFjDlxv5knLETYn79Wy.jpg
